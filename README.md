@@ -31,3 +31,9 @@ Generating a pedalboard screenshot: (uses bundle path)
 ```sh
 node screenshot.js /root/.pedalboards/BRIG_SVTube.pedalboard
 ```
+
+Generating a screenshot with a locally hosted mod-ui:
+
+```sh
+node screenshot.js http://github.com/mikeoliphant/neural-amp-modeler-lv2 http://localhost:8888
+```
