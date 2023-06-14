@@ -3,16 +3,24 @@
 // import deps
 const puppeteer = require('puppeteer');
 
-// program constants
-const prefix = 'http://192.168.51.1';
-const pageIcon = prefix + '/icon.html#';
-const pagePedalboard = prefix + '/pedalboard.html?bundlepath=';
-
 // read CLI args
-if (process.argv.length === 2) {
-    console.error(`Usage: node screenshot.js <uri>`);
+if (process.argv.length !== 3 && process.argv.length !== 4) {
+    console.error('Usage: node screenshot.js <plugin-uri> [mod-base-uri]');
+    console.error();
+    console.error('  Exmaple for <plugin-uri>:   http://github.com/mikeoliphant/neural-amp-modeler-lv2');
+    console.error('                              This value can be found in the manifest.ttl of your plugin.');
+    console.error('  Exmaple for [mod-base-uri]: http://localhost:8888');
+    console.error('                              Default is http://192.168.51.1.');
     process.exit(1);
 }
+
+// program constants
+const prefix = process.argv.length === 3 ?
+    'http://192.168.51.1' : 
+    process.argv[3];
+
+const pageIcon = prefix + '/icon.html#';
+const pagePedalboard = prefix + '/pedalboard.html?bundlepath=';
 
 // check if
 const uriOrPath = process.argv[2];
