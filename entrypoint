@@ -1,0 +1,5 @@
+#!/bin/bash
+
+node screenshot.js ${LV2_URI}
+python3 process_image.py
+cp screenshot.png thumbnail.png /workdir/
