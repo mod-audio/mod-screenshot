@@ -5,7 +5,7 @@ Based on mod-sdk from https://github.com/moddevices/mod-sdk/blob/master/modsdk/s
 Copyright (c) MOD Audio UG
 SPDX - License - Identifier: GPL-3.0
 
-@TODO: code below should became part of screenshot.js in this same repo
+@TODO: code below should become part of screenshot.js in this same repo
 '''
 
 WIDTH = 1920
