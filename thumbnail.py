@@ -41,7 +41,7 @@ def handle_image(filename):
         height = MAX_THUMB_HEIGHT
         width = width * MAX_THUMB_HEIGHT / height
     img.convert('RGB')
-    img.thumbnail((width, height), Image.ANTIALIAS)
+    img.thumbnail((width, height), Image.LANCZOS)
     img.save("thumbnail.png")
 
 if __name__ == '__main__':
