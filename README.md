@@ -3,7 +3,8 @@
 This is a small nodejs-based utility that renders either a modgui or pedalboard screenshot from a MOD unit connected via USB.
 
 It uses `pupetter` behind the scenes, which in turn uses an embed version of Chromium, to render a web page and output and PNG file.
-The output file is not cropped automatically for now.
+
+**NOTE: Usage of this tool requires a MOD unit running at least v1.13.2**
 
 ## Docker
 
@@ -23,7 +24,7 @@ docker run --rm --cap-add=SYS_ADMIN -v $(pwd):/tmp/output -e PLUGIN_URI="plugin-
 
 If you prefer local builds you need to setup nodejs and python's pip first.
 
-### Build / Dependencies
+### Local dependencies
 
 As with any nodejs-based tool, you first need to install nodejs.
 Then simply install the dependencies using npm, like so:
@@ -34,9 +35,7 @@ npm install
 
 This will create a local `node_modules` folder where the dependencies are stored.
 
-### Usage
-
-**NOTE: Usage of this tool requires a MOD unit running at least v1.13.2**
+### Local usage
 
 Generating a modgui screenshot: (uses plugin URI)
 
