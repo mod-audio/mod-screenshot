@@ -1,15 +1,13 @@
+#!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2014-2023 MOD Audio UG
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# NOTE this code should became part of screenshot.js, patches welcome!
+
 from PIL import Image
 
-'''
-Based on mod-sdk from https://github.com/moddevices/mod-sdk/blob/master/modsdk/screenshot.py#L93
-Copyright (c) MOD Audio UG
-SPDX - License - Identifier: GPL-3.0
-
-@TODO: code below should became part of screenshot.js in this same repo
-'''
-
-WIDTH = 1920
-HEIGHT = 1080
+WIDTH = 3840
+HEIGHT = 2160
 
 MAX_THUMB_WIDTH = 256
 MAX_THUMB_HEIGHT = 64
@@ -31,8 +29,8 @@ def crop(img):
     # now crop
     return img.crop([int(i) for i in (min_x, min_y, max_x, max_y)])
 
-def handle_image(fh):
-    img = Image.open(fh)
+def handle_image(filename):
+    img = Image.open(filename)
     img = crop(img)
     img.save("screenshot.png")
     width, height = img.size
@@ -46,4 +44,5 @@ def handle_image(fh):
     img.thumbnail((width, height), Image.ANTIALIAS)
     img.save("thumbnail.png")
 
-handle_image("screenshot.png")
+if __name__ == '__main__':
+    handle_image("screenshot.png")
